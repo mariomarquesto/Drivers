@@ -1,0 +1,41 @@
+.container {
+  background-color: #292929; /* Cambiado a un tono más oscuro */
+  width: 200px;
+  border: 2px solid white; /* Reducido el grosor del borde */
+  border-radius: 10px; /* Agregado borde redondeado */
+  line-height: 20px;
+  gap: 10px;
+  transition: transform 0.3s;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Efecto de sombra */
+  overflow: hidden; /* Ocultar contenido que se desborda */
+}
+
+.container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2); /* Efecto de sombra aumentado al pasar el ratón */
+}
+
+.image {
+  width: 100%; /* Ajustar la imagen al 100% del contenedor */
+  height: 150px; /* Reducir la altura de la imagen */
+  object-fit: cover;
+  border-top-left-radius: 10px; /* Añadir bordes redondeados a las esquinas de la imagen */
+  border-top-right-radius: 10px;
+}
+
+.p {
+  width: 100%;
+  padding: 10px;
+  line-height: 1.5;
+  color: #fff; /* Cambiar el color del texto a blanco */
+}
+
+/* Añadir una transición suave para el texto al hacer hover */
+.p:hover {
+  color: #ffd700; /* Cambiar color al pasar el ratón */
+  transition: color 0.3s;
+}
+
+.overflowVisible {
+  white-space: initial;
+}

@@ -1,0 +1,108 @@
+.fatherContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width:100vw;
+  padding-bottom: 50px;
+}
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: black;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    margin-top:30px;
+    border: white 4px solid;
+  }
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    color: white; 
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    overflow:hidden;
+  }
+  
+  .formContainer {
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between;   
+    padding: 20px; 
+  }
+  
+  .formGroup {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 100%;
+    font-weight: bold;
+    
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    justify-content: left;
+  }
+
+ .formLabel{
+  display: flex;
+  justify-content: left;
+  width: 120px;
+
+ }
+
+input[type="text"],
+input[type="date"],
+textarea,
+select {
+  width: 200px;
+}
+
+.title {
+  font-size: 50px; 
+  margin: 10px 0; 
+  color: white;
+}
+.errorMessage{
+  display: flex;
+  justify-content: right;
+  font-size: 0.7rem;
+  padding-bottom: 10px;
+
+}
+
+
+
+
+
+/* CSS para el botón habilitado */
+/* CSS para el botón habilitado */
+.submitButton {
+  background-color: red; /* Color de fondo cuando está habilitado */
+  color: #fff; /* Color de texto cuando está habilitado */
+  cursor: pointer; /* Cambia el cursor al pasar el mouse */
+}
+
+/* CSS para el botón deshabilitado */
+.disabledButton {
+  background-color: #ccc; /* Color de fondo cuando está deshabilitado */
+  color: #999; /* Color de texto cuando está deshabilitado */
+  cursor: not-allowed; /* Cambia el cursor al pasar el mouse */
+}
+
+/* CSS para el botón deshabilitado en estado de hover */
+.disabledButton:hover {
+  background-color: #ccc; /* Mantiene el mismo color de fondo cuando está deshabilitado y se hace hover */
+  color: #999; /* Mantiene el mismo color de texto cuando está deshabilitado y se hace hover */
+  cursor: not-allowed; /* Cambia el cursor al pasar el mouse, pero mantiene el mismo estilo */
+}
+
+ 

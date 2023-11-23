@@ -1,0 +1,70 @@
+.container {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 730aaec0e62698841c53269d193dd11555caf658
+    /* background-image: url('./assets/f1-bg3.jpg'); */
+    background-attachment: fixed;
+    background-size: cover;
+  }
+<<<<<<< HEAD
+  
+  .botones {
+    display: flex;
+    justify-content: space-around; /* Cambiado a space-around para separar uniformemente los elementos */
+    align-items: center;
+    margin: 10px; /* Agregado margen al contenedor de los botones y números de página */
+  }
+  
+  .botones button {
+    border-radius: 5px;
+    color: var(--yell);
+    padding: 5px;
+    width: 150px; /* Reducido el ancho de los botones para dar más espacio */
+    border: none;
+    cursor: pointer;
+  }
+  
+  .pageNum {
+=======
+.botones{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.botones button{
+    
+    border-radius: 5px;
+    color: var(--yell);
+    padding: 5px;
+    width: 200px;
+    border: none;
+    cursor: pointer;
+}
+.pageNum{
+>>>>>>> 730aaec0e62698841c53269d193dd11555caf658
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    font-size: 2rem;
+    padding: 5px;
+    margin: 8px;
+    width: 45px;
+<<<<<<< HEAD
+  }
+  
+  .mensajeCentral {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    font-size: 2rem;
+  }
+  
+=======
+}
+.mensajeCentral{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+
+    font-size: 2rem;
+
+}
+>>>>>>> 730aaec0e62698841c53269d193dd11555caf658

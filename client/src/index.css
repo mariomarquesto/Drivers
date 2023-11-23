@@ -1,0 +1,27 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color: rgba(255, 255, 255, 0.87);
+}
+
+a {
+  font-weight: 500;
+  color: red;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #FDB101;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+
+  min-height: 100vh;
+  background-image: url('./assets/imagenFondo3.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+
+

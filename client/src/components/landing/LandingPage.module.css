@@ -1,0 +1,51 @@
+.landingPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    place-items: center;
+
+    min-height: 100vh;
+    min-width: 100vw;
+<<<<<<< HEAD
+    background-image: url('../../assets/portada2.jpg');
+=======
+    background-image: url('../../assets/bg-landing.png');
+>>>>>>> 730aaec0e62698841c53269d193dd11555caf658
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+
+  }
+  
+
+  
+  .content {
+    text-align: center;
+    color: #fff; /* Color del texto */
+    z-index: 1; /* Coloca el contenido sobre la imagen de fondo */
+  }
+  
+  .enterButton {
+    display: inline-block;
+    padding: 10px 20px;
+<<<<<<< HEAD
+    background-color: #FDB101; /* Color de fondo del botón */
+=======
+    background-color: #ff000d; /* Color de fondo del botón */
+>>>>>>> 730aaec0e62698841c53269d193dd11555caf658
+    color: #fff; /* Color del texto del botón */
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+  .enterButton:hover {
+<<<<<<< HEAD
+    background-color: #ff000d; /* Cambia el color de fondo al pasar el cursor por encima */
+=======
+    background-color: #FDB101;; /* Cambia el color de fondo al pasar el cursor por encima */
+>>>>>>> 730aaec0e62698841c53269d193dd11555caf658
+    color: black;
+  }
+  
