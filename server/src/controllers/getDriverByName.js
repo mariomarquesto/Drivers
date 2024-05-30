@@ -2,11 +2,10 @@ const axios = require("axios");
 const { Op } = require('sequelize'); 
 const { Driver, Team } = require('../db');
 
-<<<<<<< HEAD
+
 const imgDefault = "https://images.pexels.com/photos/163444/sport-treadmill-tor-route-163444.jpeg"
-=======
-const imgDefault = "https://www.donolli.com.ar/defaultImagePI.png"
->>>>>>> 730aaec0e62698841c53269d193dd11555caf658
+
+
 
 module.exports = async (nameSearch) => {
   try {
