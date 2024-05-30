@@ -1,21 +1,24 @@
-import React from 'react'
-import { NavLink as NavLinkDom} from "react-router-dom"
-<<<<<<< HEAD
-import styles from "./Navlink.module.css"
-=======
-import styles from "./NavLink.module.css"
->>>>>>> 730aaec0e62698841c53269d193dd11555caf658
+import { NavLink as NavLinkDom } from "react-router-dom";
+import PropTypes from 'prop-types'; // Importa PropTypes
 
-function Navlink({to, children, ...props}) {
+import styles from "./NavLink.module.css";
+
+function Navlink({ to, children, ...props }) {
   return (
     <NavLinkDom
-        {...props}
-        to={to}
-        className={({isActive})=>(isActive? styles.isActive: undefined)}
-        >
-            {children}
-        </NavLinkDom>
-  )
+      {...props}
+      to={to}
+      className={({ isActive }) => (isActive ? styles.isActive : undefined)}
+    >
+      {children}
+    </NavLinkDom>
+  );
 }
 
-export default Navlink
+// Agrega validaciones de PropTypes
+Navlink.propTypes = {
+  to: PropTypes.string.isRequired, // Valida que 'to' sea una cadena y requerida
+  children: PropTypes.node.isRequired, // Valida que 'children' sea un nodo de React y requerido
+};
+
+export default Navlink;

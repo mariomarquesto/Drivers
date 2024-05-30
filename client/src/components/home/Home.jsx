@@ -1,192 +1,76 @@
-<<<<<<< HEAD
-// Importar las dependencias y componentes necesarios
-=======
->>>>>>> 730aaec0e62698841c53269d193dd11555caf658
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getAllDrivers, setCurrentPage } from "../../redux/actions/actions";
-import Cards from "../cards/Cards";
-import Pagination from "../pagination/Pagination"; 
-import FilterOrder from "../filterorder/FilterOrder";
-import style from "./Home.module.css";
+import axios from "axios";
+import { useParams } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import style from './Home.module.css';
 
-<<<<<<< HEAD
-// Definir el componente funcional principal 'Home'
-function Home() {
-  // Inicializar ganchos de Redux para acceder y despachar acciones
-  const dispatch = useDispatch();
-  // Utiliza el hook 'useSelector' de React-Redux para seleccionar la porción de estado 'allDrivers' desde Redux y asignarlo a la variable local 'allDrivers'
- const allDrivers = useSelector((state) => state.allDrivers);
-  const currentPage = useSelector((state) => state.currentPage);
-  const currentOrder = useSelector((state) => state.currentOrder);
+const defaultImage = "https://www.donolli.com.ar/defaultImagePI.png"
 
-  // Definir la cantidad de conductores a mostrar por página
-  const driversPerPage = 9; 
-
-  // Utilizar useEffect para despachar una acción para obtener todos los conductores cuando el componente se monta
-  useEffect(() => {
-    // Verificar si ya se han cargado los conductores para evitar solicitudes duplicadas
-    if (allDrivers.length === 0) {
-      dispatch(getAllDrivers());
-    }
-  }, [dispatch, allDrivers.length]);
-
-  // Calcular el rango de índices para los conductores en la página actual
-  //índice del último conductor
-  const indexOfLastDriver = currentPage * driversPerPage;
-  //índice del primer conductor
-  const indexOfFirstDriver = indexOfLastDriver - driversPerPage;
-  //controladores actuales
-  const currentDrivers = allDrivers.slice(indexOfFirstDriver, indexOfLastDriver);
-
-  // Definir funciones para manejar la paginación
-  const paginate = (pageNumber) => {
-    // Despachar una acción para actualizar la página actual
-    dispatch(setCurrentPage(pageNumber));
-  };
-
-  // Calcular el rango de índices para los conductores en la página actual (para otra parte del código)
-=======
-
-function Home() {
-  const dispatch = useDispatch();
-  const allDrivers = useSelector((state) => state.allDrivers);
-  const currentPage = useSelector((state) => state.currentPage);
-  const currentOrder = useSelector((state) => state.currentOrder);
- 
-
-  const driversPerPage = 9; 
+function Detail() {
+  const { id } = useParams();
+  const [driver, setDriver] = useState({});
+  const URL_BASE = 'https://pi-drivers.onrender.com/drivers/';
 
   useEffect(() => {
-    if (allDrivers.length === 0) {
-      dispatch(getAllDrivers());
-      
-    }
-  }, [dispatch, allDrivers.length]);
-  
-  
- 
-  // Calcular el índice de inicio y fin para los conductores de la página actual
- 
-  const indexOfLastDriver = currentPage * driversPerPage;
-  const indexOfFirstDriver = indexOfLastDriver - driversPerPage;
-  const currentDrivers = allDrivers.slice(indexOfFirstDriver, indexOfLastDriver);
-  
- 
+    let copiaDatos = {};
+    axios(`${URL_BASE}${id}`).then(({ data }) => {
+      if (data.id) {
+        setDriver(data);
+        if (typeof data.id !== "string") {
+          copiaDatos = {
+            ...data,
+            image: data.image.url
+          };
+        } else {
+          copiaDatos = {
+            ...data,
+            image: data.image
+          };
+        }
+        setDriver(copiaDatos);
+      } else {
+        window.alert('No hay drivers con ese ID');
+      }
+    });
 
-  // Cambiar de página
-  const paginate = (pageNumber) => {
-    dispatch(setCurrentPage(pageNumber));
-  };
-
->>>>>>> 730aaec0e62698841c53269d193dd11555caf658
-  const startPage = (currentPage - 1) * driversPerPage;
-  const endPage = startPage + driversPerPage;
-  const currentDriversForPagination = allDrivers.slice(startPage, endPage);
-
-<<<<<<< HEAD
-  // Definir funciones para navegar a las páginas anterior y siguiente
-  const PreviousPage = () => {
-    // Verificar si la página actual es mayor que 1 antes de retroceder
-=======
-  const PreviousPage = () => {
->>>>>>> 730aaec0e62698841c53269d193dd11555caf658
-    if (currentPage > 1) {
-      dispatch(setCurrentPage(currentPage - 1));
-    }
-  };
-
-  const NextPage = () => {
-<<<<<<< HEAD
-    // Calcular el número total de páginas
-    const totalPages = Math.ceil(allDrivers.length / driversPerPage);
-    // Verificar si la página actual es menor que el total de páginas antes de avanzar
-=======
-    const totalPages = Math.ceil(allDrivers.length / driversPerPage);
->>>>>>> 730aaec0e62698841c53269d193dd11555caf658
-    if (currentPage < totalPages) {
-      dispatch(setCurrentPage(currentPage + 1));
-    }
-  };
-
-<<<<<<< HEAD
-  // Renderizar el componente
-  return (
-    <div className={style.container}>
-      {/* Mostrar el componente de filtro de orden */}
-      <div className={style.OrderFilter}>
-        <FilterOrder currentOrder={currentOrder} />
-      </div>
-      
-      {/* Mostrar botones de anterior y siguiente para la paginación */}
-      <div className={style.botones}>
-        <button onClick={PreviousPage} disabled={currentPage === 1}>
-          Anterior
-=======
-
+    return () => setDriver({});
+  }, [id]);
 
   return (
     <div className={style.container}>
-      <div className={style.OrderFilter}>
-            <FilterOrder currentOrder={currentOrder} />
+      <div>
+        <h2 className={style.title}>Drivers detail</h2>
       </div>
-      {/* Botones ANTERIOR y SIGUIENTE Paginación BOTTOM */}
-      <div className={style.botones}>
-        <button onClick={PreviousPage} disabled={currentPage === 1}>
-          Previous
->>>>>>> 730aaec0e62698841c53269d193dd11555caf658
-        </button>
-
-        <div className={style.pageNum}>{currentPage}</div>
-
-        <button onClick={NextPage} disabled={endPage >= allDrivers.length}>
-<<<<<<< HEAD
-          Siguiente
-        </button>
+      <div className={style.detail}>
+        <div className={style.leftColumn}>
+          <h1 className={style.specialFont}>
+            <span>{driver.name ? driver.name.forename : driver.forename}</span>
+            <span>{driver.name ? driver.name.surname : driver.surname}</span>
+          </h1>
+          <div className={style.infoDriver}>
+            <p><span className={style.negrita}>Nationality: </span>{driver.nationality}</p>
+            <p><span className={style.negrita}>Date of Birth: </span>{driver.dob}</p>
+            <p><span className={style.negrita}>Description: </span>{driver.description}</p>
+            <div><span className={style.negrita}>Teams:</span>
+              {
+                typeof driver.teams === 'string'
+                  ? (<span >{driver.teams}</span>)
+                  : Array.isArray(driver.Teams) && driver.Teams.length > 0
+                  ? (<span >{driver.Teams.map((team, index) => (index === driver.Teams.length - 1 ? team.name : `${team.name}, `))}</span>)
+                  : (<span>No se encontraron escuderías.</span>)
+              }
+            </div>
+            <p><span className={style.negrita}>Id:</span> {driver.id}</p>
+          </div>
+        </div>
+        <div className={style.rightColumn}>
+          <img
+            src={driver.image ? driver.image : defaultImage}
+            alt={driver.surname}
+            className={style.circularImage} />
+        </div>
       </div>
-
-      {/* Mostrar un mensaje o las tarjetas según la presencia de conductores */}
-      {typeof allDrivers[0] === "object" && "message" in allDrivers[0] 
-        ? (
-          <p className={style.mensajeCentral}>{allDrivers[0].message}</p>
-        ) 
-        : (
-          <Cards drivers={currentDrivers} />
-        )
-      }
-
-      {/* Mostrar el componente de paginación */}
-=======
-          Next
-        </button>
-      </div>
-
-      {/* Mostrar mis Cards */}
-      
-      {typeof allDrivers[0] === "object" && "message" in allDrivers[0] 
-          ? (
-            <p className={style.mensajeCentral}>{allDrivers[0].message}</p>
-            ) 
-          : (
-            <Cards drivers={currentDrivers} />
-            )
-      }
->>>>>>> 730aaec0e62698841c53269d193dd11555caf658
-      <Pagination
-        currentPage={currentPage}
-        totalPages={Math.ceil(allDrivers.length / driversPerPage)}
-        onPageChange={paginate}
-      />
-<<<<<<< HEAD
-=======
-  
->>>>>>> 730aaec0e62698841c53269d193dd11555caf658
     </div>
   );
 }
 
-<<<<<<< HEAD
-// Exportar el componente Home
-=======
->>>>>>> 730aaec0e62698841c53269d193dd11555caf658
-export default Home;
+export default Detail;
